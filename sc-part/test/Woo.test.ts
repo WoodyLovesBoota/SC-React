@@ -2,6 +2,8 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 import { Contract, Signer } from "ethers";
 
+const TokenAddress = "0x58D3cCfE125D99CFF72FE1D2DC9E8321685b60BB";
+
 describe("Woo", () => {
   let accounts: Signer[];
   let token: Contract;
