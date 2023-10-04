@@ -9,8 +9,8 @@ function App() {
       <Header>
         <Title>Main</Title>
         <Wallet />
-        <Contents />
       </Header>
+      <Contents />
     </Wrapper>
   );
 }
