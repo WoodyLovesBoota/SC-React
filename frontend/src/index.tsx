@@ -6,6 +6,7 @@ import { Web3ReactProvider } from "@web3-react/core";
 import { getProvider } from "./utils/provider";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
+import { RecoilRoot } from "recoil";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -76,9 +77,11 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
 root.render(
   <Web3ReactProvider getLibrary={getProvider}>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
+    </RecoilRoot>
   </Web3ReactProvider>
 );

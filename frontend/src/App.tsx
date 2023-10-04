@@ -1,9 +1,7 @@
 import React from "react";
-import Contents from "./components/Contents";
-import { Web3ReactProvider } from "@web3-react/core";
-import { getProvider } from "./utils/provider";
 import styled from "styled-components";
 import Wallet from "./components/Wallet";
+import Contents from "./components/Contents";
 
 function App() {
   return (
@@ -11,6 +9,7 @@ function App() {
       <Header>
         <Title>Main</Title>
         <Wallet />
+        <Contents />
       </Header>
     </Wrapper>
   );

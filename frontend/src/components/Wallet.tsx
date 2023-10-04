@@ -3,11 +3,14 @@ import { Provider } from "../utils/provider";
 import { injected } from "../utils/connector";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useRecoilState } from "recoil";
+import { signerState } from "../atoms";
 
 const Wallet = () => {
   const { active, account, library, connector, activate, deactivate } = useWeb3React<Provider>();
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [ethBalance, setEthBalance] = useState("");
+  const [signer, setSigner] = useRecoilState(signerState);
 
   async function connect() {
     try {
@@ -29,9 +32,9 @@ const Wallet = () => {
 
   useEffect(() => {
     const getAccountBalance = async () => {
-      account &&
-        library &&
+      if (account && library) {
         setEthBalance((await library.getBalance(account)).toString().slice(0, -14));
+      }
     };
     getAccountBalance();
   }, [account, library]);
