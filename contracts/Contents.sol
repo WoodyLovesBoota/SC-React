@@ -9,7 +9,6 @@ contract Contents is IContents, Ownable {
     mapping (uint256 => ShareHolders) internal _shareInfo;
     mapping (uint256 => ContentList) internal _contentList;
 
-
     uint256 internal _contentCounter = 0;
 
     struct ContentList {
@@ -101,4 +100,5 @@ contract Contents is IContents, Ownable {
         _contentList[_contentId].disabled = true;
         emit ContentDeactivated(_contentId);
     }
+
 }
